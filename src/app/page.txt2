@@ -1,0 +1,76 @@
+import Image from "next/image";
+import styles from "./page.module.css";
+import { getSession, useSession } from "next-auth/react";
+
+
+export default async function Home() {
+  const session = await getSession();
+  console.log("session", session);
+  return (
+    <>
+      <div className="bg-gray-200 w-1/4">aaaa</div>
+
+      <div className="flex-1 flex-grow h-screen">
+        <div className="flex-grow bg-gray-400 p-4">
+          <h2 className="text-lg font-bold">Conteúdo principal</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+            auctor placerat orci ac fringilla. Nam convallis ipsum eu libero
+            ultrices malesuada. Donec eget sapien vel tortor efficitur faucibus.
+            Nunc dapibus orci sed consequat laoreet. Praesent euismod semper
+            elit, non pharetra augue rutrum eu. Fusce efficitur, dolor nec
+            vehicula varius, sapien velit commodo velit, vel sagittis leo libero
+            ut magna. Pellentesque at interdum ante. Vestibulum ante ipsum
+            primis in faucibus orci luctus et ultrices posuere cubilia curae;
+            Donec id magna quis erat euismod interdum sit amet sit amet augue.
+            Duis sit amet libero eget leo lacinia pellentesque.
+          </p>
+        </div>
+
+        <div className="flex-auto bg-gray-200 p-4 flex items-end">
+          <form className="w-full">
+            <div className="flex">
+              <input
+                type="text"
+                placeholder="Digite sua pergunta"
+                className="flex-grow border border-gray-400 rounded-l-lg py-2 px-4"
+              />
+              <button
+                type="submit"
+                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-r-lg"
+              >
+                Enviar
+              </button>
+            </div>
+          </form>
+        </div>
+        {/* <div className="flex-1 flex-grow overflow-y-scroll">
+          <div className="p-8">
+            <h1 className="text-2xl font-bold mb-4">Título da área central</h1>
+            <p className="mb-8">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec
+              scelerisque enim. Duis euismod fermentum velit, sit amet vehicula
+              augue dignissim id.
+            </p>
+          </div>
+        </div>
+
+        <div className="flex-shrink-0 flex items-center justify-between px-4 py-2">
+          <form className="flex items-center justify-between">
+            <input
+              className="w-full mr-4 py-2 px-3 border border-gray-400 rounded-lg shadow-sm focus:outline-none focus:border-blue-400 focus:shadow-outline-blue"
+              type="text"
+              placeholder="Digite sua pergunta"
+            />
+            <button
+              className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline-blue"
+              type="button"
+            >
+              Enviar
+            </button>
+          </form>
+        </div> */}
+      </div>
+    </>
+  );
+}

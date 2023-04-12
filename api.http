@@ -1,0 +1,44 @@
+POST http://localhost:3000/api/generate-token
+Content-Type: application/json
+
+{
+    "user_id": "1"
+}
+
+###
+@token = eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIn0..0a9zLWQXn-TJng2a.I9FIZkcwH5lGipgJDnbSPPpXoORA9NZWaC7trz2goC8n2fMZl2iqZ3XEWqC9w21cbIRR3VjjiTw3Vn3DKV3UYmwE1S5f55NBtQUaSUliugJcTV2s7E4Dq-iUDAuwLkXM3AmJuWhbdODk.cmubSOFq3RJ5iTBhCLwd8A
+
+POST http://localhost:3000/api/chats
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "message": "Gere uma classe de categoria em Python"
+    //"message": "Hello"
+}
+
+###
+GET http://localhost:3000/api/chats
+Authorization: Bearer {{token}}
+
+###
+@chatId = 50f2f0b3-f94f-4ca5-bc54-6b715f2a86db
+GET http://localhost:3000/api/chats/{{chatId}}/messages
+Authorization: Bearer {{token}}
+
+###
+POST http://localhost:3000/api/chats/{{chatId}}/messages
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "message": "Gere uma classe de categoria em Python"
+    //"message": "Hello"
+}
+
+###
+@messageId = cad19c4f-6808-4c5f-a456-ece555e882ee
+GET http://localhost:3000/api/messages/{{messageId}}/events
+Authorization: Bearer {{token}}
+
+###
